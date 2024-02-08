@@ -5,13 +5,14 @@ pipeline {
         stage('Fetch Code') {
             steps {
                 // Clone the repository
-                git 'https://github.com/yourusername/your-repo.git'
+                git 'https://github.com/technicals-123/SysConfigMail.git'
             }
         }
         stage('Execute Script') {
             steps {
                 // Execute the shell script
-                sh 'bash your_script.sh'
+                sh 'chmod +x sysconfig.sh'
+                sh './sysconfig.sh'
             }
         }
     }
