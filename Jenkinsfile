@@ -2,12 +2,12 @@ pipeline {
     agent any
  
     stages {
-        stage('Fetch Code') {
-            steps {
-                // Clone the repository
-                git 'https://github.com/technicals-123/SysConfigMail.git'
-            }
-        }
+        // stage('Fetch Code') {
+        //     steps {
+        //         // Clone the repository
+        //         git 'https://github.com/technicals-123/SysConfigMail.git'
+        //     }
+        // }
         stage('Execute Script') {
             steps {
                 // Make the script executable
