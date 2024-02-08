@@ -8,22 +8,25 @@ pipeline {
                 git 'https://github.com/technicals-123/SysConfigMail.git'
             }
         }
-        stage('Execute Script') {
+             stage('Execute Script') {
             steps {
-                // Execute the shell script
-                sh 'chmod +x sysconfig.sh'
-                sh './sysconfig.sh'
+                // Make the script executable
+sh 'chmod +x sysconfig.sh'
+                // Execute the script and capture output
+def scriptOutput = sh(script: './sysconfig.sh', returnStdout: true).trim()
+                // Print script output for debugging
+                echo "Script Output: ${scriptOutput}"
             }
         }
     }
  
     post {
         always {
-            // Send email notification
+            // Send email notification with script output in the body
             emailext(
                 to: 'sranjan@healthedge.com', // Recipient email address
                 subject: 'Script Execution Status',
-                body: 'The script execution has completed.',
+                body: "${scriptOutput}", // Include script output in email body
                 mimeType: 'text/plain'
             )
         }
