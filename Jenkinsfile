@@ -28,11 +28,18 @@ pipeline {
             }
         }
       stage('SonarQube Analysis') {
-            steps {
-                 withSonarQubeEnv('SonarQube') {
-                 sh 'sonar-scanner'
-                 }
-          }
-       }
+    steps {
+        script {
+            // Define the SonarQube Scanner tool installation
+            def scannerHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+            // Add SonarQube Scanner to PATH
+            env.PATH = "${scannerHome}/bin:${env.PATH}"
+        }
+        // Run SonarQube analysis
+        withSonarQubeEnv() {
+            sh 'sonar-scanner'
+        }
+    }
+}
     }
 }
