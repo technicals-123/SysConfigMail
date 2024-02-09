@@ -36,7 +36,7 @@ pipeline {
             env.PATH = "${scannerHome}/bin:${env.PATH}"
         }
         // Run SonarQube analysis
-        withSonarQubeEnv() {
+        withSonarQubeEnv('SonarQube') {
             sh 'sonar-scanner'
         }
     }
