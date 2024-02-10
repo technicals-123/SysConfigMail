@@ -39,7 +39,7 @@ sh 'sh config.sh'
                 //           to: 'sranjan@healthedge.com',
                 //           attachmentsPattern: 'system_info.xlsx'
                    script {
-                    def scriptOutput = sh(script: './sysconfig.sh', returnStdout: true).trim()
+                    def scriptOutput = sh(script: './config.sh', returnStdout: true).trim()
                     // Print script output for debugging
                     echo "Script Output: ${scriptOutput}"
                     // Send email notification with script output in the body
