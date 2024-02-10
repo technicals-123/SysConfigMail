@@ -54,7 +54,7 @@ sh 'sh config.sh'
                           attachmentsPattern: 'system_info.xlsx'
             }
         }
-    }
+}
     
     // post {
     //     always {
@@ -66,4 +66,4 @@ sh 'sh config.sh'
     //         }
     //     }
     // }
-}
+// }
