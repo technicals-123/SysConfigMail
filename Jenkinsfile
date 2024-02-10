@@ -30,7 +30,7 @@ pipeline {
 stage('SonarQube Analysis') {
     steps { 
         script {
-            withSonarQubeEnv('SonarQube_Server_Name') {
+            withSonarQubeEnv('SonarQube') {
                 sh ''' 
                 sonar-scanner 
                 -Dsonar.projectKey=sonarcube_sys_analysis 
