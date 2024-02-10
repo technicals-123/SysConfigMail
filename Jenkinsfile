@@ -20,24 +20,36 @@ sh 'sh config.sh'
             //           }
             // }
             
-        stage('Convert to Excel') {
-            steps {
-                script {
-                    // Use Python with pandas to convert CSV to Excel
-                    sh 'chmod +x convert_to_excel.sh'
-                    sh './convert_to_excel.sh'
-                }
-            }
-        }
+        // stage('Convert to Excel') {
+        //     steps {
+        //         script {
+        //             // Use Python with pandas to convert CSV to Excel
+        //             sh 'chmod +x convert_to_excel.sh'
+        //             sh './convert_to_excel.sh'
+        //         }
+        //     }
+        // }
     
        
         
         stage('Send Email') {
             steps {
-                emailext subject: 'System Information Excel Report',
-                          body: 'Please find the attached Excel file containing system information.',
-                          to: 'sranjan@healthedge.com',
-                          attachmentsPattern: 'system_info.xlsx'
+                // emailext subject: 'System Information Excel Report',
+                //           body: 'Please find the attached Excel file containing system information.',
+                //           to: 'sranjan@healthedge.com',
+                //           attachmentsPattern: 'system_info.xlsx'
+                   script {
+                    def scriptOutput = sh(script: './sysconfig.sh', returnStdout: true).trim()
+                    // Print script output for debugging
+                    echo "Script Output: ${scriptOutput}"
+                    // Send email notification with script output in the body
+                    emailext(
+                        to: 'sranjan@healthedge.com', // Recipient email address
+                        subject: 'Script Execution Status',
+                        body: "${scriptOutput}", // Include script output in email body
+                        mimeType: 'text/plain'
+                    )
+                }
             }
         }
 }
