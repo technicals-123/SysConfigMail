@@ -14,18 +14,18 @@ sh 'sh config.sh'
         stage('Convert to Excel') {
             steps {
                 script {
-                    // Read CSV into DataFrame
-                    def df = readFile 'system_info.csv'.trim()
-                            .split('\n')
-                            .collect { line -> line.split(',').collect { it.trim() } }
-                            .collect { line -> line.join('\t') }
-                            .join('\n')
- 
-                    // Write DataFrame to Excel
-                    writeFile file: 'system_info.xlsx', text: df
+                    // Use Python with pandas to convert CSV to Excel
+                    sh '''
+                        python3 - <<EOF
+                        import pandas as pd
+                        df = pd.read_csv('system_info.csv')
+                        df.to_excel('system_info.xlsx', index=False)
+                        EOF
+                    '''
                 }
             }
         }
+    }
        
         
         stage('Send Email') {
