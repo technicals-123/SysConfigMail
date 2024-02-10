@@ -38,7 +38,7 @@ sh 'sh config.sh'
                         import pandas as pd
 
                         #read csv file
-                        df=pd.read_csv('system_info.xlsx')
+                        df=pd.read_csv('system_info.cv')
 
                         #convert to excel and save
                         with pd.ExcelWriter('system_info.xlsx')
