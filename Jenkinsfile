@@ -34,9 +34,17 @@ sh 'sh config.sh'
                 script {
                     // Use Python with pandas to convert CSV to Excel
                     sh '''
-                        echo "import pandas as pd
-                        df = pd.read_csv('system_info.csv')
-                        df.to_excel('system_info.xlsx', index=False)" | python3
+                        python3 - <<EOF
+                        import pandas as pd
+
+                        #read csv file
+                        df=pd.read_csv('system_info.xlsx')
+
+                        #convert to excel and save
+                        with pd.ExcelWriter('system_info.xlsx')
+                             df.to_excel(writer, index=False, sheet_name='Sheet1')
+                        EOF
+                        
                     '''
                 }
             }
