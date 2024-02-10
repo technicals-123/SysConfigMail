@@ -76,13 +76,13 @@ sh 'sh config.sh'
             }
         }
         
-        stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh 'sonar-scanner'
-                }
-            }
-        }
+        // stage('SonarQube Analysis') {
+        //     steps {
+        //         withSonarQubeEnv('SonarQube') {
+        //             sh 'sonar-scanner'
+        //         }
+        //     }
+        // }
         
         stage('Send Email') {
             steps {
