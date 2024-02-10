@@ -32,7 +32,7 @@ sh 'sh config.sh'
             steps {
                 emailext subject: 'System Information Excel Report',
                           body: 'Please find the attached Excel file containing system information.',
-                          to: 'sranjan@healthedge.com.com',
+                          to: 'sranjan@healthedge.com',
                           attachmentsPattern: 'system_info.xlsx'
             }
         }
