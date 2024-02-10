@@ -24,7 +24,7 @@ sh 'sh config.sh'
             steps {
                 script {
                     // Use Python with pandas to convert CSV to Excel
-                    sh 'sudo chmod +x convert_to_excel.sh'
+                  
                     sh './convert_to_excel.sh'
                 }
             }
