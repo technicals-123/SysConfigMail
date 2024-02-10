@@ -14,8 +14,8 @@ sh 'sh config.sh'
         
             stage('Install Python and pandas') {
                 steps { 
-                       sh 'yum update -y'
-                       sh 'yum install -y python3 python3-pip' 
+                       sh 'sudo yum update -y'
+                       sh 'sudo yum install -y python3 python3-pip' 
                        sh 'pip3 install pandas'
                       }
             }
