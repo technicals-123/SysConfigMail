@@ -38,14 +38,14 @@ sh 'sh config.sh'
         }
     }
     
-    post {
-        always {
-            cleanup {
-                script {
-                    // Clean up generated files
-                    sh 'rm system_info.csv system_info.xlsx'
-                }
-            }
-        }
-    }
+    // post {
+    //     always {
+    //         cleanup {
+    //             script {
+    //                 // Clean up generated files
+    //                 sh 'rm system_info.csv system_info.xlsx'
+    //             }
+    //         }
+    //     }
+    // }
 }
