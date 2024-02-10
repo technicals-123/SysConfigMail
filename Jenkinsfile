@@ -10,7 +10,23 @@ sh 'sh config.sh'
                 }
             }
         }
-        
+        stages {
+            stage('Install Python and pandas') {
+                steps { 
+                    script { 
+                        // Check if Python is installed 
+                        def pythonInstalled = sh(script: 'python3 --version', returnStatus: true) == 0 
+                        if (!pythonInstalled) { 
+                            // Install Python 
+                            sh 'sudo apt-get update && sudo apt-get install -y python3' } 
+                        // Check if pandas is installed 
+                        def pandasInstalled = sh(script: 'python3 -c "import pandas"', returnStatus: true) == 0 
+                        if (!pandasInstalled) {
+                            // Install pandas sh 'pip3 install pandas' 
+                        } 
+                    }
+                }
+            }
         stage('Convert to Excel') {
             steps {
                 script {
