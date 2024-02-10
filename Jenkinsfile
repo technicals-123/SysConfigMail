@@ -10,6 +10,7 @@ sh 'sh config.sh'
                 }
             }
         }
+    }
         stages {
             stage('Install Python and pandas') {
                 steps { 
