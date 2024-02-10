@@ -16,11 +16,11 @@ sh 'sh config.sh'
                 script {
                     // Use Python with pandas to convert CSV to Excel
                     sh '''
-                        python3 - <<EOF
+                        echo '
                         import pandas as pd
                         df = pd.read_csv('system_info.csv')
                         df.to_excel('system_info.xlsx', index=False)
-                        EOF
+                        ' | python3
                     '''
                 }
             }
