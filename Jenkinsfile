@@ -14,8 +14,8 @@ sh 'sh config.sh'
         
             stage('Install Python and pandas') {
                 steps { 
-                       sh 'sudo apt-get update'
-                       sh 'sudo apt-get update && sudo apt-get install -y python3 python3-pip' 
+                       sh 'apt-get update'
+                       sh 'apt-get update && sudo apt-get install -y python3 python3-pip' 
                        sh 'pip3 install pandas'
                       }
             }
