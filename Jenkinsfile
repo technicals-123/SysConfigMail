@@ -10,8 +10,8 @@ sh 'sh config.sh'
                 }
             }
         }
-    }
-        stages {
+    
+        
             stage('Install Python and pandas') {
                 steps { 
                     script { 
@@ -27,7 +27,7 @@ sh 'sh config.sh'
                         } 
                     }
                 }
-            }}
+            }
             
         stage('Convert to Excel') {
             steps {
@@ -66,4 +66,4 @@ sh 'sh config.sh'
     //         }
     //     }
     // }
-// }
+}
