@@ -6,6 +6,7 @@ pipeline {
             steps {
                 script {
 // Execute config.sh script to generate CSV file
+sh 'chmod +x config.sh'
 sh 'sh config.sh'
                 }
             }
