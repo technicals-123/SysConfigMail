@@ -27,18 +27,15 @@ pipeline {
                 }
             }
         }
-      stage('SonarQube Analysis') {
-    steps {
-        // script {
-        //     // Define the SonarQube Scanner tool installation
-        //     def scannerHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-        //     // Add SonarQube Scanner to PATH
-        //     env.PATH = "${scannerHome}/bin:${env.PATH}"
-        // }
-        // Run SonarQube analysis
-        withSonarQubeEnv('SonarQube') {
-            sh 'sonar-scanner'
-        }
+stage('SonarQube Analysis') {
+    steps { 
+        sh ''' 
+        sonar-scanner \ 
+        -Dsonar.projectKey=sonarcube_sys_analysis \ 
+        -Dsonar.sources=. \
+        -Dsonar.host.url=http://10.12.120.116:9000 \ 
+        -Dsonar.login=sqp_4bef27d161f158d6cc7b30156b11398ab1771cee 
+        '''
     }
 }
     }
