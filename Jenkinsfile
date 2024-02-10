@@ -25,7 +25,7 @@ sh 'sh config.sh'
                 }
             }
         }
-    }
+    
        
         
         stage('Send Email') {
