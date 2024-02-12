@@ -15,7 +15,9 @@ shell=$(echo $user_info | cut -d: -f7)
  
 # Get disk usage and free disk space
 disk_usage=$(df -h --output=source,size,avail | grep "$(df -h /home/$username | grep -o '^/[^ ]*')")
- 
+disk1
+size1
+free1
 # Get network information
 network_info=$(ip addr show | awk '/inet / {print $2}')
  
@@ -27,8 +29,11 @@ printf "| %-10s | %-9s | %-15s | %-11s |" "$user_id" "$group_id" "$home_director
  
 echo "$disk_usage" | while read -r line; do
     disk=$(echo "$line" | awk '{print $1}')
+    disk1=$disk
     size=$(echo "$line" | awk '{print $2}')
+    size1=$size
     free=$(echo "$line" | awk '{print $3}')
+    free1=$free
     printf "%-8s | %-6s | %-10s |" "$disk" "$size" "$free"
 done
  
@@ -61,4 +66,4 @@ echo "$network_info" | while read -r line; do
     fi
     echo "$user_id,$group_id,$home_directory,$shell,N/A,N/A,N/A,$interface,$domain_name,$ip_address" >> "$csv_file"
 done
-python turncsv.py "$user_id" "$group_id" "$home_directory" "$shell" "$disk_usuage" "$network_info"
+python turncsv.py "$user_id" "$group_id" "$home_directory" "$shell" "$disk1" "$size1" "$free1"
