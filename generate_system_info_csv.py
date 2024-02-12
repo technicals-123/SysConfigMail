@@ -38,4 +38,4 @@ with open(csv_file_path, mode='w', newline='') as csvfile:
         writer.writerow([user_id, group_id, home_directory, shell, "N/A", "N/A", "N/A", interface, domain_name, ip_address])
  
 print("CSV file '{}' has been generated successfully.".format(csv_file_path))
-has context menu
+
