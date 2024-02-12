@@ -66,4 +66,4 @@ echo "$network_info" | while read -r line; do
 done
 echo "$disk_usuage" 
 echo "$disk"
-python turncsv.py "$user_id" "$group_id" "$home_directory" "$shell" "$disk_usuage" "$network_info"
+
