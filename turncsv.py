@@ -27,5 +27,4 @@ network_info_dict = {
 print("User Info:", user_info_dict)
 print("Disk Usage:", disk_usage_dict)
 print("Network Info:", network_info_dict)
-has context menu
-Compose
+
