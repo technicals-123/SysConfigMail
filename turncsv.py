@@ -9,9 +9,6 @@ user_info_dict = {
   
 }
 disk_usuage_str=sys.argv[5]
-disk_usuage_list=disk_usuage_str.split()
-disk_usuage_dict={
-"disk":disk_usuage_list[0]
-}
+
 print(user_info_dict)
-print(disk_usuage_dict)
+print(disk_usuage_str)
