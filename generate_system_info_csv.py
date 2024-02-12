@@ -30,7 +30,7 @@ except StopIteration:
  
 # Create CSV file with tabular format
 csv_file_path = "system_info.csv"
-with open(csv_file_path, mode='w', newline='') as csvfile:
+with open(csv_file_path, mode='w') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['User ID', 'Group ID', 'Home Directory', 'Shell', 'Disk', 'Size', 'Free Space', 'Network Interface', 'Domain Name', 'IP Address'])
     writer.writerow([user_id, group_id, home_directory, shell, '', '', '', '', '', ''])
