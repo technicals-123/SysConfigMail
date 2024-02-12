@@ -3,18 +3,23 @@ import csv
 import socket
  
 # Execute the Bash script and capture its output
-bash_script_output = subprocess.Popen(['bash', 'config.sh'], stdout=subprocess.PIPE).communicate()[0].decode()
+bash_script_output = subprocess.Popen(['bash', 'your_script.sh'], stdout=subprocess.PIPE).communicate()[0].decode()
  
 # Parse the output of the Bash script
 output_lines = bash_script_output.splitlines()
  
 # Extract variable values from the output
-user_id = output_lines[2].split('|')[1].strip()
-group_id = output_lines[2].split('|')[2].strip()
-home_directory = output_lines[2].split('|')[3].strip()
-shell = output_lines[2].split('|')[4].strip()
-disk_info = [line.strip().split('|') for line in output_lines[4:-2]]
-network_info = [line.strip().split('|') for line in output_lines[-1:]]
+user_info_line = next(line for line in output_lines if line.startswith('| User ID'))
+user_id = user_info_line.split('|')[2].strip()
+group_id = user_info_line.split('|')[3].strip()
+home_directory = user_info_line.split('|')[4].strip()
+shell = user_info_line.split('|')[5].strip()
+ 
+disk_info_lines = [line for line in output_lines if line.startswith('| /')]
+disk_info = [[field.strip() for field in line.split('|')[1:]] for line in disk_info_lines]
+ 
+network_info_line = next(line for line in output_lines if line.startswith('| eth'))
+network_info = [network_info_line.strip().split('|')]
  
 # Create CSV file with tabular format
 csv_file_path = "system_info.csv"
@@ -33,3 +38,4 @@ with open(csv_file_path, mode='w', newline='') as csvfile:
         writer.writerow([user_id, group_id, home_directory, shell, "N/A", "N/A", "N/A", interface, domain_name, ip_address])
  
 print("CSV file '{}' has been generated successfully.".format(csv_file_path))
+has context menu
