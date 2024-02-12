@@ -39,9 +39,7 @@ echo "$network_info" | while read -r line; do
     interface=$(echo "$line" | awk -F: '{print $1}')
     ip_address=$(echo "$line" | awk -F/ '{print $1}')
     domain_name=$(nslookup "$ip_address" | awk '/name/ {print $4}')
-    if [ -z "$domain_name" ]; then
-        domain_name="N/A"
-    fi
+    
     printf "%-17s | %-12s | %-13s |\n" "$interface" "$domain_name" "$ip_address"
 done
 printf "+------------+-----------+-----------------+-------------+---------+-------+------------+------------------+-------------+--------------+\n"
