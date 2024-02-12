@@ -32,4 +32,4 @@ with open(csv_file_path, mode='w', newline='') as csvfile:
             domain_name = "N/A"
         writer.writerow([user_id, group_id, home_directory, shell, "N/A", "N/A", "N/A", interface, domain_name, ip_address])
  
-print(f"CSV file '{csv_file_path}' has been generated successfully.")
+print("CSV file '{}' has been generated successfully.".format(csv_file_path))
