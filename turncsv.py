@@ -1,3 +1,4 @@
+import sys
 user_id=sys.argv[1]
 group_id=sys.argv[2]
 home_directory=sys.argv[3]
