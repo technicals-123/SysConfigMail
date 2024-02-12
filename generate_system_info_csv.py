@@ -23,7 +23,7 @@ with open(csv_file_path, mode='w', newline='') as csvfile:
     writer.writerow(['User ID', 'Group ID', 'Home Directory', 'Shell', 'Disk', 'Size', 'Free Space', 'Network Interface', 'Domain Name', 'IP Address'])
     writer.writerow([user_id, group_id, home_directory, shell, '', '', '', '', '', ''])
     for disk in disk_info:
-        writer.writerow([user_id, group_id, home_directory, shell, *disk])
+        writer.writerow([user_id, group_id, home_directory, shell] + disk)
     for network in network_info:
         interface, ip_address = network[1].strip(), network[2].strip()
         try:
