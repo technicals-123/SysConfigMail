@@ -17,7 +17,7 @@ shell=$(echo $user_info | cut -d: -f7)
 disk_usage=$(df -h --output=source,size,avail | grep "$(df -h /home/$username | grep -o '^/[^ ]*')")
 
 # Get network information
-network_info=$(ip addr show | awk '/inet / {print $2}')
+network_info=$(ip addr show | awk '/inet / {print $2, $NF}')
  
 # Display information in tabular format
 printf "+------------+-----------+-----------------+-------------+---------+-------+------------+------------------+-------------+--------------+\n"
@@ -62,6 +62,7 @@ echo "$network_info" | while read -r line; do
     if [ -z "$domain_name" ]; then
         domain_name="N/A"
     fi
+    network_info="$network_info $domain_name"
     echo "$user_id,$group_id,$home_directory,$shell,N/A,N/A,N/A,$interface,$domain_name,$ip_address" >> "$csv_file"
 done
 echo "$network_info"
