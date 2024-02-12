@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment{
+        SONAR_SCANNER_HOME= tool 'SonnarScanner'
+    }
     
     stages {
         stage('Generate CSV') {
@@ -60,10 +63,10 @@ pipeline {
         script {
             withSonarQubeEnv('SonarQube') {
                 sh ''' 
-                sonar-scanner 
-                -Dsonar.projectKey=sonarcube_sys_analysis 
-                -Dsonar.sources=. 
-                -Dsonar.host.url=http://10.12.120.116:9000
+                 ${SONAR_SCANNER_HOME}/bin/sonar-scanner\
+                -Dsonar.projectKey=sonarcube_sys_analysis \
+                -Dsonar.sources=. \
+                -Dsonar.host.url=http://10.12.120.116:9000 \
                 -Dsonar.login=sqp_4bef27d161f158d6cc7b30156b11398ab1771cee
                
                 ''' } 
