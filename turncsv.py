@@ -7,11 +7,11 @@ user_info_dict = {
     "home_directory": sys.argv[3],
     "shell": sys.argv[4]
 }
- 
+disk_usuage_list=sys.argv[5].split() 
 disk_usage_dict = {
-    "disk": sys.argv[5],
-    "size": sys.argv[6],
-    "free_space": sys.argv[7]
+    "disk": disk_usuage_list[0],
+    "size": disk_usuage_list[1],
+    "free_space": disk_usuage_list[2]
 }
  
 # For network info, you may need to parse it further
