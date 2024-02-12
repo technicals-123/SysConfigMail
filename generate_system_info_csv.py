@@ -3,7 +3,7 @@ import csv
 import socket
  
 # Execute the Bash script and capture its output
-bash_script_output = subprocess.Popen(['bash', 'your_script.sh'], stdout=subprocess.PIPE).communicate()[0].decode()
+bash_script_output = subprocess.Popen(['bash', 'config.sh'], stdout=subprocess.PIPE).communicate()[0].decode()
  
 # Parse the output of the Bash script
 output_lines = bash_script_output.splitlines()
