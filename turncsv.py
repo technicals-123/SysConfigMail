@@ -29,9 +29,9 @@ print(user_info_df)
 #print(disk_info_df)
 #converting dataframe  to excel file
 # determining the name of the file
-file_name = 'UserData.xlsx'
+file_name = 'UserData.csv'
  
 # saving the excel
-user_info_df.to_excel(file_name)
-print('DataFrame is written to Excel File successfully.')
+user_info_df.to_csv(file_name)
+print('DataFrame is written to CSV File successfully.')
 
