@@ -1,5 +1,5 @@
 import sys
- 
+import pandas as pd
 # Create dictionaries to store the command-line arguments
 user_info_dict = {
     "user_id": sys.argv[1],
@@ -15,7 +15,11 @@ disk_usuage_dict={
  "size":disk_usuage_list[1],
  "free_space":disk_usuage_list[2]
 }
-
+#converting to dataframe
+user_info_df=pd.DataFrame(user_info_dict)
+disk_info_df=pd.DataFrame(disk_usuage_dict)
 print(user_info_dict)
 print(disk_usuage_dict)
+print(user_info_df)
+print(disk_info_df)
 
