@@ -5,9 +5,9 @@ pipeline {
         stage('Generate CSV') {
             steps {
                 script {
-// Execute config.sh script to generate CSV file
-sh 'chmod +x config.sh'
-sh 'sh config.sh'
+                      // Execute config.sh script to generate CSV file
+                         sh 'chmod +x config.sh'
+                         sh 'sh config.sh'
                 }
             }
         }
@@ -53,9 +53,9 @@ sh 'sh config.sh'
                 }
             }
         }
-}
-    
-   stage('SonarQube Analysis') {
+
+
+           stage('SonarQube Analysis') {
     steps { 
         script {
             withSonarQubeEnv('SonarQube') {
@@ -70,4 +70,7 @@ sh 'sh config.sh'
         } 
     }
 }
+}
+    
+
 }
