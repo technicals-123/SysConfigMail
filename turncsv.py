@@ -1,15 +1,31 @@
 import sys
-user_id=sys.argv[1]
-group_id=sys.argv[2]
-home_directory=sys.argv[3]
-shell=sys.argv[4]
-disk=sys.argv[5]
-size=sys.argv[6]
-free=sys.argv[7]
-interface=sys.argv[8]
-domain_name=sys.argv[9]
-ip_address=sys.argv[10]
-print(user_id)
-print(ip_address)
-print(free)
-print(size)
+ 
+# Create dictionaries to store the command-line arguments
+user_info_dict = {
+    "user_id": sys.argv[1],
+    "group_id": sys.argv[2],
+    "home_directory": sys.argv[3],
+    "shell": sys.argv[4]
+}
+ 
+disk_usage_dict = {
+    "disk": sys.argv[5],
+    "size": sys.argv[6],
+    "free_space": sys.argv[7]
+}
+ 
+# For network info, you may need to parse it further
+# If network_info is a string, you can split it and assign it to the dictionary
+network_info_list = sys.argv[8].split()
+network_info_dict = {
+    "interface": network_info_list[0],
+    "domain_name": network_info_list[1],
+    "ip_address": network_info_list[2]
+}
+ 
+# Now you have dictionaries containing the command-line arguments
+print("User Info:", user_info_dict)
+print("Disk Usage:", disk_usage_dict)
+print("Network Info:", network_info_dict)
+has context menu
+Compose
