@@ -11,3 +11,5 @@ domain_name=sys.argv[9]
 ip_address=sys.argv[10]
 print(user_id)
 print(ip_address)
+print(free)
+print(size)
