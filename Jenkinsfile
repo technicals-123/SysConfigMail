@@ -56,7 +56,7 @@ pipeline {
                 }
             }
         }
-
+stage('Print SonarScanner Home') { steps { script { println "SonarScanner home: ${SONAR_SCANNER_HOME}" } } }
 
            stage('SonarQube Analysis') {
     steps { 
