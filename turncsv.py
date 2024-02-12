@@ -6,7 +6,12 @@ user_info_dict = {
     "group_id": sys.argv[2],
     "home_directory": sys.argv[3],
     "shell": sys.argv[4],
-    "disk1":sys.argv[5]
+  
 }
-
+disk_usuage_str=sys.argv[5]
+disk_usuage_list=disk_usuage_str.split()
+disk_usuage_dict={
+"disk":disk_usuage_list[0]
+}
 print(user_info_dict)
+print(disk_usuage_dict)
