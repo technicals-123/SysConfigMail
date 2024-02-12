@@ -64,6 +64,6 @@ echo "$network_info" | while read -r line; do
     fi
     echo "$user_id,$group_id,$home_directory,$shell,N/A,N/A,N/A,$interface,$domain_name,$ip_address" >> "$csv_file"
 done
-echo "$disk_usuage" 
+echo "$disk_usage" 
 echo "$disk"
 
