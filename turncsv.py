@@ -23,8 +23,8 @@ user_info={
 #converting to dataframe
 user_info_df=pd.DataFrame([user_info])
 #disk_info_df=pd.DataFrame([disk_usuage_dict])
-print(user_info_dict)
-print(disk_usuage_dict)
+#print(user_info_dict)
+print(disk_info)
 print(user_info_df)
 #print(disk_info_df)
 
