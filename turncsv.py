@@ -15,5 +15,12 @@ disk_usuage_dict={
  "size":disk_usuage_list[1],
  "free_space":disk_usuage_list[2]
 }
+network_info_list = sys.argv[6].split() 
+network_info_dict = { 
+ "interface": network_info_list[0], 
+ "domain_name": network_info_list[1], 
+ "ip_address": network_info_list[2] 
+}
 print(user_info_dict)
 print(disk_usuage_dict)
+print(network_info_dict)
