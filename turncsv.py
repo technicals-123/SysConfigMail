@@ -16,10 +16,11 @@ disk_usuage_dict={
  "free_space":disk_usuage_list[2]
 }
 #converting to dataframe
-user_info_df=pd.DataFrame(user_info_dict)
-disk_info_df=pd.DataFrame(disk_usuage_dict)
+# user_i
+# user_info_df=pd.DataFrame(user_info_dict)
+# disk_info_df=pd.DataFrame(disk_usuage_dict)
 print(user_info_dict)
 print(disk_usuage_dict)
-print(user_info_df)
-print(disk_info_df)
+# print(user_info_df)
+# print(disk_info_df)
 
