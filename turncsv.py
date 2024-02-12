@@ -14,9 +14,6 @@ user_info={
 }
 #converting to dataframe
 user_info_df=pd.DataFrame([user_info])
-print(user_info)
-print(user_info_df)
-
 #converting dataframe  to excel file
 file_name = 'UserData.xlsx'
  
