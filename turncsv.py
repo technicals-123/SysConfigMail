@@ -8,7 +8,7 @@ user_info_dict = {
     "shell": sys.argv[4],
   
 }
-disk_usuage_str=sys.argv[5]
+disk_usage_str=sys.argv[5]
 
 print(user_info_dict)
-print(disk_usuage_str)
+print(disk_usage_str)
