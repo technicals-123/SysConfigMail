@@ -3,10 +3,10 @@ import csv
 import socket
  
 # Execute the Bash script and capture its output
-bash_script_output = subprocess.run(['bash', 'config.sh'], capture_output=True, text=True)
+bash_script_output = subprocess.Popen(['bash', 'config.sh'], stdout=subprocess.PIPE).communicate()[0].decode()
  
 # Parse the output of the Bash script
-output_lines = bash_script_output.stdout.splitlines()
+output_lines = bash_script_output.splitlines()
  
 # Extract variable values from the output
 user_id = output_lines[2].split('|')[1].strip()
