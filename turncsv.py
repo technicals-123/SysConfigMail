@@ -17,10 +17,10 @@ disk_usuage_dict={
 }
 #converting to dataframe
 # user_i
-# user_info_df=pd.DataFrame(user_info_dict)
-# disk_info_df=pd.DataFrame(disk_usuage_dict)
+user_info_df=pd.DataFrame.from_dict(user_info_dict)
+disk_info_df=pd.DataFrame.from_dict(disk_usuage_dict)
 print(user_info_dict)
 print(disk_usuage_dict)
-# print(user_info_df)
-# print(disk_info_df)
+print(user_info_df)
+print(disk_info_df)
 
