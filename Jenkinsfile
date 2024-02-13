@@ -25,7 +25,7 @@ pipeline {
                     // Send email notification with script output in the body
                     emailext(
                         to: 'sranjan@healthedge.com', // Recipient email address
-                        subject: 'Script Execution Status',
+                        subject: 'User System Configurations Details',
                         body: "${scriptOutput}", // Include script output in email body
                         attachmentsPattern: '**/UserData.xlsx'
                     )
