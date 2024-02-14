@@ -57,10 +57,8 @@ echo "$network_info" | while read -r line; do
     interface=$(echo "$line" | awk -F: '{print $1}')
     ip_address=$(echo "$line" | awk -F/ '{print $1}')
     domain_name=$(nslookup "$ip_address" | awk '/name/ {print $4}')
-    if [ -z "$domain_name" ]; then
-        domain_name="N/A"
-    fi
+    
     network_info="$network_info $domain_name"
-    echo "$user_id,$group_id,$home_directory,$shell,N/A,N/A,N/A,$interface,$domain_name,$ip_address" >> "$csv_file"
+    echo "$user_id,$group_id,$home_directory,$shell,$interface,$domain_name,$ip_address" >> "$csv_file"
 done
 python turnexcel.py "$user_id" "$group_id" "$home_directory" "$shell" "$disk_usage" 
